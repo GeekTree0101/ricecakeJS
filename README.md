@@ -5,10 +5,10 @@ HTML5 Hybrid application framework with Cordova and Vue.js
 
 ## Getting started
 
-
-1. "start": Auto build and watch / "gulp Vue:start"
-2. "dev": Operating Dev server / "cross-env NODE_ENV=development webpack-dev-server"
-3. "build": Build script as webpack / "cross-env NODE_ENV=production webpack --progress --hide-modules"
+1. "npm install -d" : Install node_modules base on package.json
+2. "npm run start": Auto build and watch / "gulp Vue:start"
+3. "npm run dev": Operating Dev server / "cross-env NODE_ENV=development webpack-dev-server"
+4. "npm run build": Build script as webpack / "cross-env NODE_ENV=production webpack --progress --hide-modules"
     
 ## Base tree
 
