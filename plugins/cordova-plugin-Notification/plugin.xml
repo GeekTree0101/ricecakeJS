@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-Notification" version="0.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <name>Notification</name>
+    
+    <!--Cordova Engine-->
+    <engine>
+        <engine name="cordova" version=">=5.4.0"/>
+    </engine>
+ 
+    <!-- 설치중 충돌을 방지한다.-->
+    <asset src="www/Notification.js" target="js/Notification.js"/>
+
+    <js-module name="Notification" src="www/Notification.js">
+        <clobbers target="Notification" />
+    </js-module>
+    
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+        
+         <feature name="Notification">
+             <param name="android-package" value="org.apache.cordova.Notification.Notification" />
+        </feature>
+        
+        </config-file>
+        
+        <config-file parent="/*" target="AndroidManifest.xml">
+        </config-file>
+        
+        <source-file src="src/android/Notification.java" target-dir="src/org/apache/cordova/Notification/"/>
+  
+    </platform>
+        
+</plugin>

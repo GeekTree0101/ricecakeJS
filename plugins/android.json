@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.app.vue"
+        },
+        "cordova-plugin-Notification": {
+            "PACKAGE_NAME": "com.app.vue"
+        }
+    },
+    "dependent_plugins": {}
+}
