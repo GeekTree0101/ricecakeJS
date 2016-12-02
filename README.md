@@ -1,4 +1,4 @@
-# Vue.js X Cordova
+# RicecakeJS
 
 ## Introduction
 HTML5 Hybrid application framework with Cordova and Vue.js
