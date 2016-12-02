@@ -31,5 +31,3 @@ webpack.config.js
 .
 
 ```
-
-<img src="https://github.com/GeekTree0101/vue-cordova/master/www/img/icon.img" />
