@@ -26,10 +26,8 @@ var state = {
  */
 var startView = "home";
 
-
 Ricecake.init();                                          // Ricecake init
 Ricecake.CakeBootstrap(startView, route, state);          // Ricecake bootstrap
-
 
 
 /*
