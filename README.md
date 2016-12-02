@@ -32,4 +32,4 @@ webpack.config.js
 
 ```
 
-![alt tag](https://github.com/GeekTree0101/vue-cordova/www/img/splash.png)
+<img src="https://github.com/GeekTree0101/vue-cordova/master/www/img/icon.img" />

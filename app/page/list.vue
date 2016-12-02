@@ -1,10 +1,15 @@
 <template>
-    <div id="home">
+    <div id="list">
         <div class="ricecake-header" >
             <span v-on:click="nextpage">
-                 Home Page
+                 List Page
             </span>
         <div>
+        <div class="ricecake-list">    
+            <ol>
+                <li v-for="element in listComponent">{{ element.text }}</li>
+            </ol>
+        </div>        
     <button class="button-test" v-on:click="onClick"> Test </button>
     </div>
 </template>
@@ -15,29 +20,30 @@
 
     export default {
 
-        name: 'home',
+        name: 'list',
         data() {
             return {
                 title: "Vue x Vertx",
                 state: true,
-                flag : true
+                listComponent : []
             }
         },
         methods: {
             onClick: function() {
-                console.log("[+] Button Click");
-                if(this.flag == true){
-                    Ricecake.action("ricecake-header","in");
-                    this.flag = false;
+
+                var text = ["test list", "vue.js is awesome", "with ricecake"];
+                var select = parseInt(Math.random()*3);
+
+                var insert = {
+                    text : text[select]
                 }
-                else{
-                    Ricecake.action("ricecake-header","out");
-                    this.flag = true;
-                }
+
+                this.listComponent.push(insert);
+
             },
             nextpage : function(){
                 
-                Ricecake.viewChange("list");
+                Ricecake.viewChange("home");
             }
 
         }
