@@ -57,69 +57,100 @@ var BootStrap = (() => {
         this.applicationView = null;
     }
 
+    /**
+     *   RicecakeJS BootStrap
+     *   @parameter
+     *   presentPage[string] : set present page
+     *   route[Object] : vue components route
+     *   viewState[Object] : View components control
+     */
     BootStrap.prototype.init = (presentPage, route, viewState) => {
 
-        var viewElements  = this.bootstrap.view(viewState);
+        try{
+            
+            var viewElements  = this.bootstrap.view(viewState);          // create components
         
-        var view = Vue.component('view', {
-            el : '#view',
-            template: `<div id="view" class="page">`+ 
-                       this.bootstrap.view(route) + 
-                       `</div>`
-            ,
-            data(){
-                return {
-                    appRoute : viewState,
-                    appPresent : presentPage
-                }
-            },
-            components : route
-        }); 
+            var view = Vue.component('view', {
+                el : '#view',
+                template: `<div id="view" class="page">`+ 
+                             this.bootstrap.view(route) + 
+                          `</div>`
+                ,
+                data(){
+                    return {
+                        appRoute : viewState,
+                        appPresent : presentPage
+                    }
+                },
+                components : route
+            }); 
         
 
-        var VIEW = new Vue({
-            el : '#app',
-            render : h => h(view)
-        });
+            var VIEW = new Vue({                                        // start
+                el : '#app',
+                render : h => h(view)
+            });
 
-        this.bootstrap.applicationView = VIEW;
+            this.bootstrap.applicationView = VIEW;                      // cache 
+        }
+        finally{
 
+            viewElements = null;
+            VIEW = null;
+        }
     }
 
-    BootStrap.prototype.view = (viewState) =>{
+    /**
+     *  Ricecake View
+     *  @parameter
+     *  viewState[Object] : view tagname object
+     */
+    BootStrap.prototype.view = (viewState) =>{                      // make components
 
-        var target = Object.keys(viewState);
-        var viewElements = "";
+        try{
+            
+            var target = Object.keys(viewState);
+            var viewElements = "";
 
-        for(var index in target){
+            for(var index in target){
 
-            var name = target[index];
+                var name = target[index];
 
-            viewElements += "<" + 
-                           name + 
-                           ' v-if="appRoute.' + 
-                           name + '"></' +
-                           name + ">"; 
-
+                viewElements += "<" + 
+                               name + 
+                               ' v-if="appRoute.' + 
+                               name + '"></' +
+                               name + ">"; 
+            }
         }
-        target = null;
+        finally{
+
+            target = null;
+            index = null;
+        }
 
         return viewElements;
     }
 
-    BootStrap.prototype.viewChange = (target) => {
+    /**
+     *  RicecakeJS View Change
+     *  @parameter
+     *  target[string] : target view
+     */
+    BootStrap.prototype.viewChange = (target) => {                // View change
 
-        console.log("VIEW", this.bootstrap.applicationView);
+        try{
 
-        var temp_dom = this.bootstrap.applicationView.$children[0];
+            var temp_dom = this.bootstrap.applicationView.$children[0];
         
-        temp_dom.appRoute[temp_dom.appPresent] = false;
-        temp_dom.appRoute[target] = true;
-        temp_dom.appPresent = target;
-
-        temp_dom = null;
+            temp_dom.appRoute[temp_dom.appPresent] = false;
+            temp_dom.appRoute[target] = true;
+            temp_dom.appPresent = target;
+        }
+        finally{
+            temp_dom = null;
+        }
     }
-
 
     return BootStrap;
 })();
@@ -134,6 +165,11 @@ var Ricecake = (() => {
         this.bootstrap = null;
     }
 
+    /**
+     *  RicecakeJS init
+     *  : instances ricecakeCore and bootstrap
+     * 
+     */
     Ricecake.prototype.init = () => {
         
         console.log("\n\n Ricecake Create! \n" +  Date() + "\n\n");
@@ -141,26 +177,51 @@ var Ricecake = (() => {
         this.bootstrap = new BootStrap();
     }
 
-    Ricecake.prototype.CakeBootstrap = (presentPage, route, viewState) => {
+    // @Overriding
+    Ricecake.prototype.CakeBootstrap = (presentPage, route) => {
+
 
         try{
+            
+            var viewState = {};
+
+            var list = Object.keys(route);
+
+            for(var index in list){
+
+                if(list[index] == presentPage){
+                    viewState[ list[index] ] = true;
+                }
+                else{
+                    viewState[ list[index] ] = false;
+                }
+            }
+
+
             this.bootstrap.init(presentPage, route, viewState);
         }   
         catch(e){
-            console.log("[- ERROR] : ", e);
+            console.log("[BOOTSTRAP ERROR] : ", e);
+        }
+        finally{
+            viewState = null;
+            list = null;
+            index = null;
         }
     }
 
+    // @Overriding
     Ricecake.prototype.action = (target, animation_name) => {
 
         try{
             this.core.action(target, animation_name);
         }
         catch(e){
-            console.log("[- ERROR ] : ",e);
+            console.log("[ACTION ERROR ] : ",e);
         }
     }
 
+    // @Overriding
     Ricecake.prototype.viewChange = (target) => {
 
         try{
@@ -172,10 +233,11 @@ var Ricecake = (() => {
             },200);
         }
         catch(e){
-            console.log("[- ERROR ] : ", e);
+            console.log("[VIEW CHANGE ERROR ] : ", e);
         }
     }
 
+    // Clear
     Ricecake.prototype.free = () => {
         // Garbage collection will come
         this.core = null;
