@@ -4,13 +4,19 @@
             <span v-on:click="nextpage">
                  List Page
             </span>
-        <div>
-        <div class="ricecake-list">    
-            <ol>
-                <li v-for="element in listComponent">{{ element.text }}</li>
-            </ol>
-        </div>        
-    <button class="button-test" v-on:click="onClick"> Test </button>
+        </div>
+
+        <div class="ricecake-component"> 
+            <div class="ricecake-list">
+                <ol>
+                    <li v-for="element in listComponent">{{ element.text }}</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="ricecake-nav">        
+            <button class="button-test" v-on:click="onClick"> Test </button>
+        </div>
     </div>
 </template>
 
@@ -43,7 +49,7 @@
             },
             nextpage : function(){
                 
-                Ricecake.viewChange("home");
+                Ricecake.viewChange("home",["leftout","rightin"]);
             }
 
         }

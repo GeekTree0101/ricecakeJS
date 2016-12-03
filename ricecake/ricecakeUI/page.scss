@@ -1,0 +1,43 @@
+
+.page{
+    animation-duration :0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    
+}
+
+@keyframes leftout{
+    0%{
+        margin-left : 0%;
+    }
+    100%{
+        margin-left : -200%;
+    }
+}
+
+@keyframes leftin{
+    0%{
+        margin-left : -200%;
+    }
+    100%{
+        margin-left : 0%;
+    }
+}
+
+@keyframes rightout{
+    0%{
+        margin-left : 0%;
+    }
+    100%{
+        margin-left : 200%;
+    }
+}
+
+@keyframes rightin{
+    0%{
+        margin-left :  200%;
+    }
+    100%{
+        margin-left : 0%;
+    }
+}

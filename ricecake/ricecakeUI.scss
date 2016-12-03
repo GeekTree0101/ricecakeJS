@@ -1,0 +1,13 @@
+@import "./../app/app.global.scss";
+
+body {
+    overflow : none;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: $g_body-color;
+}
+
+
+@import "./ricecakeUI/component.scss";
+@import "./ricecakeUI/page.scss";

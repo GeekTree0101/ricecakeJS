@@ -222,14 +222,15 @@ var Ricecake = (() => {
     }
 
     // @Overriding
-    Ricecake.prototype.viewChange = (target) => {
+    Ricecake.prototype.viewChange = (target,keyframes) => {
 
         try{
-            this.core.action("page", "pageOut");
+            this.core.action("page", keyframes[0]);
             
             setTimeout(()=>{
+
                 this.bootstrap.viewChange(target);
-                this.core.action("page", "pageIn");
+                this.core.action("page", keyframes[1]);
             },200);
         }
         catch(e){

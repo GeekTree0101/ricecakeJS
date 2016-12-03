@@ -31,6 +31,7 @@ gulp.task("watch", function() {
     gulp.watch(["./ricecake/**/*.js"], ["Vue:build"]);
     gulp.watch(["./app/**/*.vue"], ["Vue:build"]);
     gulp.watch(["./app/**/*.scss"], ["Vue:view"]);
+    gulp.watch(["./ricecake/**/*.scss"], ["Vue:view"]);
 })
 
 /**

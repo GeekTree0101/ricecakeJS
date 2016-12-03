@@ -1,12 +1,19 @@
 <template>
     <div id="home">
-        <div class="ricecake-header" >
-            <span v-on:click="nextpage">
-                 Home Page
-            </span>
-        <div>
-    <button class="button-test" v-on:click="onClick"> Test </button>
-    </div>
+
+        <div class="ricecake-header homepage" >
+            <span v-on:click="nextpage"> Home Page </span>
+        </div>
+        
+        <div class="ricecake-component">
+        
+        </div>
+        
+        <div class="ricecake-nav">
+            <button class="button-test" v-on:click="onClick"> Test </button>
+        </div>
+    
+    </div>    
 </template>
 
 
@@ -37,7 +44,7 @@
             },
             nextpage : function(){
                 
-                Ricecake.viewChange("list");
+                Ricecake.viewChange("list",["rightout","leftin"]);
             }
 
         }

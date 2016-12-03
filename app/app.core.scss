@@ -1,38 +1,8 @@
-//import page stylesheet
-@import "./app.global.scss";
+//import ricecakeUI stylesheet
+@import "./../ricecake/ricecakeUI.scss";
 
-.page{
-    animation-duration :0.5s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    animation-name : pageIn;
-}
-body {
-    height: 100%;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
-    background-color: $g_body-color;
-}
-
+// user custom stylesheet
 @import "./page/home";
 @import "./page/list";
 
 
-@keyframes pageIn {
-    0%{
-        margin-left :  200%;
-    }
-    100%{
-        margin-left : 0%;
-    }
-}
-
-@keyframes pageOut {
-    0%{
-        margin-left : 0%;
-    }
-    100%{
-        margin-left : 200%;
-    }
-}

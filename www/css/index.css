@@ -1,12 +1,6 @@
-.page {
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-name: pageIn; }
-
 body {
+  overflow: none;
   height: 100%;
-  overflow: hidden;
   margin: 0px;
   padding: 0px;
   background-color: #FDEEFF; }
@@ -16,24 +10,64 @@ body {
   top: 0;
   background-color: #0881A3;
   width: 100%;
-  height: 20%;
-  max-height: 50px;
+  height: 10%;
   text-align: center;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards; }
+  z-index: 99; }
   .ricecake-header span {
     position: relative;
-    top: 10px;
+    top: 20px;
     color: #fff;
     font-weight: 800;
     font-size: 200%; }
 
-.button-test {
+.ricecake-component {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  overflow-y: scroll; }
+
+.ricecake-nav {
   position: fixed;
   bottom: 0;
-  left: 0;
+  width: 100%; }
+
+.page {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1; }
+
+@keyframes leftout {
+  0% {
+    margin-left: 0%; }
+  100% {
+    margin-left: -200%; } }
+
+@keyframes leftin {
+  0% {
+    margin-left: -200%; }
+  100% {
+    margin-left: 0%; } }
+
+@keyframes rightout {
+  0% {
+    margin-left: 0%; }
+  100% {
+    margin-left: 200%; } }
+
+@keyframes rightin {
+  0% {
+    margin-left: 200%; }
+  100% {
+    margin-left: 0%; } }
+
+.homepage {
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; }
+
+.button-test {
   width: 100%;
+  height: 50%;
   background-color: #1E757B;
   color: #fff;
   font-size: 3vmax;
@@ -42,29 +76,24 @@ body {
 @keyframes in {
   0% {
     background-color: #0881A3;
-    height: 20%;
-    max-height: 50px; }
+    height: 10%; }
   100% {
     background-color: #1E757B;
     height: 50%;
-    border-radius: 0 0 20% 20%;
-    max-height: 400px; } }
+    border-radius: 0 0 20% 20%; } }
 
 @keyframes out {
   0% {
     background-color: #1E757B;
     height: 50%;
-    border-radius: 0 0 20% 20%;
-    max-height: 400px; }
+    border-radius: 0 0 20% 20%; }
   100% {
     background-color: #0881A3;
-    height: 20%;
-    max-height: 50px; } }
+    height: 10%; } }
 
 .ricecake-list {
-  margin-top: 10%; }
-  .ricecake-list ol {
-    padding: 0; }
+  margin-top: 10%;
+  padding: 0; }
   .ricecake-list li {
     color: #fff;
     background-color: #777;
@@ -82,15 +111,3 @@ body {
     margin-left: 400%; }
   100% {
     margin-left: 0%; } }
-
-@keyframes pageIn {
-  0% {
-    margin-left: 200%; }
-  100% {
-    margin-left: 0%; } }
-
-@keyframes pageOut {
-  0% {
-    margin-left: 0%; }
-  100% {
-    margin-left: 200%; } }
