@@ -2,7 +2,7 @@
     <div id="home">
 
         <div class="ricecake-header homepage" >
-            <span v-on:click="nextpage"> Home Page </span>
+            <span> Home Page </span>
         </div>
         
         <div class="ricecake-component">
@@ -19,7 +19,6 @@
 
 <script>
     import Ricecake from "./../../ricecake/ricecake.core.js";
-
     export default {
 
         name: 'home',
@@ -29,6 +28,19 @@
                 state: true,
                 flag : true
             }
+        },
+        mounted  : ()=>{
+
+            var dom = document.all[0];
+            Ricecake.TouchEvent("swipe", dom, function(){
+                console.log("ACT to list");
+                Ricecake.viewChange("list",["rightout","leftin"]);
+            });
+
+        },
+        beforeDestroy : () => {
+            console.log("before destroy");
+            Ricecake.RemoveEvent();
         },
         methods: {
             onClick: function() {
@@ -41,10 +53,6 @@
                     Ricecake.action("ricecake-header","out");
                     this.flag = true;
                 }
-            },
-            nextpage : function(){
-                
-                Ricecake.viewChange("list",["rightout","leftin"]);
             }
 
         }

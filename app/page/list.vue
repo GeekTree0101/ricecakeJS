@@ -1,7 +1,7 @@
 <template>
     <div id="list">
         <div class="ricecake-header" >
-            <span v-on:click="nextpage">
+            <span>
                  List Page
             </span>
         </div>
@@ -33,6 +33,19 @@
                 state: true,
                 listComponent : []
             }
+        },   
+        mounted : ()=>{
+
+            var dom = document.all[0];
+            Ricecake.TouchEvent("swipe", dom, function(){
+                console.log("ACT to home");
+                Ricecake.viewChange("home",["leftout","rightin"]);
+            });
+
+        },
+        beforeDestroy : () => {
+            console.log("before destroy");
+            Ricecake.RemoveEvent();
         },
         methods: {
             onClick: function() {
@@ -46,10 +59,6 @@
 
                 this.listComponent.push(insert);
 
-            },
-            nextpage : function(){
-                
-                Ricecake.viewChange("home",["leftout","rightin"]);
             }
 
         }

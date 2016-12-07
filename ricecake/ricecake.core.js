@@ -4,6 +4,7 @@
  * 
  */
 import Vue from 'vue';
+import Hammer from './hammer.js';
 
 var ricecakeCore = (() => {
 
@@ -11,6 +12,8 @@ var ricecakeCore = (() => {
         
         this.cached_dom = [];
         this.cached_target = [];
+        this.motionHandler = null;
+
     }
 
     /**
@@ -20,7 +23,7 @@ var ricecakeCore = (() => {
      *  target[string] : target dom className
      *  animation_name[string] : keyframes name
      */
-     ricecakeCore.prototype.action = (target, animation_name) => {
+    ricecakeCore.prototype.action = (target, animation_name) => {
 
         var index = this.core.cached_target.indexOf(target);
 
@@ -47,6 +50,7 @@ var ricecakeCore = (() => {
 
     }
 
+    
     return  ricecakeCore;
 })();
 
@@ -175,6 +179,12 @@ var Ricecake = (() => {
         console.log("\n\n Ricecake Create! \n" +  Date() + "\n\n");
         this.core = new ricecakeCore();
         this.bootstrap = new BootStrap();
+        this.touchEvent = {
+            motion : null,
+            dom : null,
+            callback : null,
+            event : null
+        }
     }
 
     // @Overriding
@@ -221,6 +231,7 @@ var Ricecake = (() => {
         }
     }
 
+
     // @Overriding
     Ricecake.prototype.viewChange = (target,keyframes) => {
 
@@ -242,6 +253,36 @@ var Ricecake = (() => {
     Ricecake.prototype.free = () => {
         // Garbage collection will come
         this.core = null;
+    }
+
+    Ricecake.prototype.TouchEvent = (motion, target, callback) => {
+
+        this.touchEvent.dom = target;
+
+        this.touchEvent.event = new Hammer(target);
+
+        this.touchEvent.motion = motion;
+        this.touchEvent.callback = callback;
+        this.touchEvent.event.on(motion, this.touchEvent.callback);
+    }
+
+    Ricecake.prototype.RemoveEvent = () => {
+
+        try{
+            this.touchEvent.event.off(
+                this.touchEvent.motion ,
+                this.touchEvent.callback
+            );
+        }
+        finally{
+            
+            this.touchEvent = {
+                motion : null,
+                dom : null,
+                callback : null,
+                event : null
+            }        
+        }
     }
 
     return new Ricecake();

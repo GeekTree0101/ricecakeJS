@@ -12,17 +12,3 @@ var route = {
 
 Ricecake.init();                                          // Ricecake init
 Ricecake.CakeBootstrap("home", route);          // Ricecake bootstrap
-
-
-var event = document.all[0];
-
-event.addEventListener("touchstart", function(e){
-    console.log("touch",e);
-})
-
-
-event.addEventListener("touchmove", function(e){
-    console.log("move",e);
-})
-
-

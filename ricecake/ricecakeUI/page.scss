@@ -9,24 +9,35 @@
 @keyframes leftout{
     0%{
         margin-left : 0%;
+        opacity : 1;
+    }
+    50%{
+        opacity : 0.5;
     }
     100%{
         margin-left : -200%;
+    
     }
 }
 
 @keyframes leftin{
     0%{
         margin-left : -200%;
+        opacity : 0;
     }
     100%{
         margin-left : 0%;
+        opacity : 1;
     }
 }
 
 @keyframes rightout{
     0%{
         margin-left : 0%;
+           opacity : 1;
+    }
+    50%{
+        opacity : 0.5;
     }
     100%{
         margin-left : 200%;
@@ -36,8 +47,10 @@
 @keyframes rightin{
     0%{
         margin-left :  200%;
+        opacity : 0;
     }
     100%{
         margin-left : 0%;
+        opacity : 1;
     }
 }
