@@ -1,5 +1,32 @@
 @import "./../app.global.scss";
 
+.nav-barstyle{
+
+    list-style-type : none;
+    margin : 0;
+    padding :0;
+    overflow : hidden;
+    color : #fff;
+    font-size : 3vmax;
+    font-weight : 700;
+
+    .nav-title{
+        float : left;
+        font-size : 4vmax;
+        margin-left : 2%;
+        margin-top : 4%;
+    }
+    .nav-toogle{
+        float : right;
+        margin-right : 4%;
+        margin-top : 5%;
+    }
+    .nav-toogle:active{
+        opacity : 0.5;
+    }
+}
+
+
 
 .homepage {
     animation-duration: 2s;
@@ -9,11 +36,16 @@
 
 .button-test{
     width : 100%;
-    height : 50%;
-    background-color : #1E757B;
+    height : 6vmax;
+    background-color : #596371;
     color : #fff;
     font-size : 3vmax;
     font-weight : 800;
+    outline : none;
+    border-width : 0;
+}
+.button-test:active{
+    opacity : 0.8;
 }
 
 @keyframes in {

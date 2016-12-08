@@ -1,9 +1,9 @@
 <template>
     <div id="list">
         <div class="ricecake-header" >
-            <span>
-                 List Page
-            </span>
+            <ul class="nav-barstyle">
+                <li class="nav-title"> ListPage </li>
+            </ul>
         </div>
 
         <div class="ricecake-component"> 
