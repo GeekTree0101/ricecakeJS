@@ -22,11 +22,10 @@
         max-width : 100%;
     }
 
-    button{
+    i{
         position : absolute;
         right : 0;
-        margin-top : 5%;
-        margin-right : 10%;
+        margin-top : 10%;
         border-width : 0;
         border-radius: 100%;
         width : 10vmax;
@@ -35,9 +34,8 @@
         background-color : #f3b447;
         font-size: 5vmax;
         font-weight: 900;
-        outline :none;
     }
-    button:active{
+    i:active{
 
         animation-duration :0.2s;
         animation-fill-mode: forwards;

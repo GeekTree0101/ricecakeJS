@@ -1,8 +1,8 @@
 /*
 *   Bootstrap
 */
-import home from "./page/home.vue";
-import list from "./page/list.vue";
+import home from "./page/home/home.vue";
+import list from "./page/list/list.vue";
 import Ricecake from "./../ricecake/ricecake.core.js";
 
 var route = {
@@ -10,5 +10,5 @@ var route = {
     "list" : list
 }
 
-Ricecake.init();                                          // Ricecake init
-Ricecake.CakeBootstrap("home", route);          // Ricecake bootstrap
+Ricecake.Core.init();                                          // Ricecake init
+Ricecake.Core.CakeBootstrap("home", route);          // Ricecake bootstrap

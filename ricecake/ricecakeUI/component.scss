@@ -30,3 +30,30 @@
     width :100%;
 }
 
+
+.ricecake-header-barstyle{
+
+    list-style-type : none;
+    margin : 0;
+    padding :0;
+    overflow : hidden;
+    color : #fff;
+    font-size : 3vmax;
+    font-weight : 700;
+
+    .ricecake-header-title{
+        float : left;
+        font-size : 4vmax;
+        margin-left : 2%;
+        margin-top : 4%;
+    }
+    .ricecake-header-toogle{
+        float : right;
+        margin-right : 4%;
+        margin-top : 5%;
+    }
+    .ricecake-header-toogle:active{
+        opacity : 0.5;
+    }
+}
+

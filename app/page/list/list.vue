@@ -1,9 +1,7 @@
 <template>
     <div id="list">
         <div class="ricecake-header" >
-            <ul class="nav-barstyle">
-                <li class="nav-title"> ListPage </li>
-            </ul>
+            <ricecake-headerbar v-bind:riceProps = "navbar" ><ricecake-headerbar>
         </div>
 
         <div class="ricecake-component"> 
@@ -22,7 +20,7 @@
 
 
 <script>
-    import Ricecake from "./../../ricecake/ricecake.core.js";
+    import Ricecake from "./../../../ricecake/ricecake.core.js";
 
     export default {
 
@@ -31,23 +29,30 @@
             return {
                 title: "Vue x Vertx",
                 state: true,
-                listComponent : []
+                listComponent : [],
+                navbar : {
+                    title : "Listpage",
+                    icon : null,
+                    callback : null
+                }
             }
         },   
         mounted : ()=>{
 
             var dom = document.all[0];
-            Ricecake.TouchEvent("swipe", dom, function(){
+            Ricecake.Core.TouchEvent("swipe", dom, function(){
                 console.log("ACT to home");
-                Ricecake.viewChange("home",["leftout","rightin"]);
+                Ricecake.Core.viewChange("home",["leftout","rightin"]);
             });
 
         },
         beforeDestroy : () => {
+            
             console.log("before destroy");
-            Ricecake.RemoveEvent();
+            Ricecake.Core.RemoveEvent();
         },
         methods: {
+
             onClick: function() {
 
                 var text = ["test list", "vue.js is awesome", "with ricecake"];
@@ -61,6 +66,9 @@
 
             }
 
+        },
+        components : {
+            "ricecake-headerbar" : Ricecake.Components.Headerbar
         }
     }
 </script>

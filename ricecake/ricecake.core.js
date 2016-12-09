@@ -4,6 +4,7 @@
  * 
  */
 import Vue from 'vue';
+import RiceCakeComponents from "./components.js";
 import Hammer from './hammer.js';
 
 var ricecakeCore = (() => {
@@ -160,9 +161,9 @@ var BootStrap = (() => {
 })();
 
 
-var Ricecake = (() => {
+var Core = (() => {
 
-    function Ricecake(){
+    function Core(){
         // init
         console.log("\n\n Hello Ricecake!\n Copyright(C)2016 GeekTree0101 \n\n");
         this.core = null;   // private for ricecakeCore
@@ -174,7 +175,7 @@ var Ricecake = (() => {
      *  : instances ricecakeCore and bootstrap
      * 
      */
-    Ricecake.prototype.init = () => {
+    Core.prototype.init = () => {
         
         console.log("\n\n Ricecake Create! \n" +  Date() + "\n\n");
         this.core = new ricecakeCore();
@@ -188,7 +189,7 @@ var Ricecake = (() => {
     }
 
     // @Overriding
-    Ricecake.prototype.CakeBootstrap = (presentPage, route) => {
+    Core.prototype.CakeBootstrap = (presentPage, route) => {
 
 
         try{
@@ -221,7 +222,7 @@ var Ricecake = (() => {
     }
 
     // @Overriding
-    Ricecake.prototype.action = (target, animation_name) => {
+    Core.prototype.action = (target, animation_name) => {
 
         try{
             this.core.action(target, animation_name);
@@ -233,7 +234,7 @@ var Ricecake = (() => {
 
 
     // @Overriding
-    Ricecake.prototype.viewChange = (target,keyframes) => {
+    Core.prototype.viewChange = (target,keyframes) => {
 
         try{
             this.core.action("page", keyframes[0]);
@@ -250,12 +251,12 @@ var Ricecake = (() => {
     }
 
     // Clear
-    Ricecake.prototype.free = () => {
+    Core.prototype.free = () => {
         // Garbage collection will come
         this.core = null;
     }
 
-    Ricecake.prototype.TouchEvent = (motion, target, callback) => {
+    Core.prototype.TouchEvent = (motion, target, callback) => {
 
         this.touchEvent.dom = target;
 
@@ -266,7 +267,7 @@ var Ricecake = (() => {
         this.touchEvent.event.on(motion, this.touchEvent.callback);
     }
 
-    Ricecake.prototype.RemoveEvent = () => {
+    Core.prototype.RemoveEvent = () => {
 
         try{
             this.touchEvent.event.off(
@@ -285,8 +286,15 @@ var Ricecake = (() => {
         }
     }
 
-    return new Ricecake();
+    return new Core();
 })();
+
+let Ricecake  = {
+
+    "Core" : Core,
+    "Components" : RiceCakeComponents
+}
+
 
 export default Ricecake;
 

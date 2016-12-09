@@ -1,8 +1,9 @@
 //import ricecakeUI stylesheet
+@import "./app.global.scss";
 @import "./../ricecake/ricecakeUI.scss";
 
 // user custom stylesheet
-@import "./page/home";
-@import "./page/list";
+@import "./page/home/home.scss";
+@import "./page/list/list.scss";
 
 
