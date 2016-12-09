@@ -11,7 +11,7 @@
     z-index : 99;
     overflow : none;
     
-    animation-duration :1s;
+    animation-duration :0.5s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 
@@ -44,7 +44,6 @@
        
     }
 }
-
 
 @keyframes sideOn{
     0%{
@@ -82,3 +81,4 @@
         opacity : 1;
     }
 }
+

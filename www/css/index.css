@@ -3,21 +3,31 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(./material-icon.woff2) format("woff2"); }
+  src: url(../fonts/material-icon.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/material-icon.woff2) format("woff2"), url(../fonts/material-icon.woff) format("woff"), url(../fonts/material-icon.ttf) format("truetype"); }
 
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
+  /* Preferred icon size */
   display: inline-block;
-  white-space: nowrap;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
   word-wrap: normal;
+  white-space: nowrap;
   direction: ltr;
-  -webkit-font-smoothing: antialiased; }
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga'; }
 
 body {
   overflow: none;
@@ -121,7 +131,7 @@ body {
   max-height: 100%;
   z-index: 99;
   overflow: none;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1; }
   .ricecake-sidemenu .ricecake-sidemenu-component {

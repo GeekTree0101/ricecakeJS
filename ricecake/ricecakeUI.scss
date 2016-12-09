@@ -1,6 +1,6 @@
 
-@import "./icon/material-icon.scss";
 @import "./../app/app.global.scss";
+@import "./icon/icon.scss";
 
 body {
     overflow : none;
@@ -9,7 +9,6 @@ body {
     padding: 0px;
     background-color: $g_body-color;
 }
-
 
 @import "./ricecakeUI/component.scss";
 @import "./ricecakeUI/page.scss";
