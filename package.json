@@ -15,6 +15,7 @@
         "sockjs-client": "^1.1.1"
     },
     "devDependencies": {
+        "ios-deploy" : "^1.9.1",
         "gulp": "^3.9.1",
         "gulp-sass": "^2.3.2",
         "gulp-exec": "^2.1.3",
