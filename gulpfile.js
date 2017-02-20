@@ -3,7 +3,7 @@
  *    AngularJS2 X Vert.X gulp build system
  *    
  *    provider : Ha Hyeonsu
- *    update : 2016.11.23
+ *    update : 2016.12.31
  * 
  *    copyright(c) 2016 MIRO internet of things team
  */
